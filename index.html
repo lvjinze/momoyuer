@@ -44,8 +44,8 @@
 			$("body").on("click",".nav a",function(e){
 				e.preventDefault();
 			});
+			$("dd:eq(0) a").click();
 			$("#"+$("dd:eq(0) a").data("source")).load(function(){
-				$("dd:eq(0) a").click();
 				mainIframeLoad($("dd:eq(0) a").data("source"));
 			})
 		})
