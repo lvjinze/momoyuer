@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>摸鱼么，兄弟？</title>
+	<link rel="stylesheet" href="../static/lib/layui/css/layui.css">
+	<link rel="stylesheet" href="../static/fish/fish.css">
+</head>
+<body>
+	<div class="container">
+		<div class="head">
+			<a href="#"><img src="../static/fish/fish.png"/>&nbsp;&nbsp;摸鱼么，兄弟？</a>
+		</div>
+		<div class="body">
+			<div class="nav">
+				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav">
+					<li class="layui-nav-item layui-nav-itemed">
+						<a href="javascript:;">鱼</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a data-source="kyzg">开源中国</a>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<iframe frameborder="0" name="kyzg" id="kyzg" src="kyzg.html"></iframe>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../static/lib/layui/layui.all.js" ></script>
+	<script>
+		var $ = layui.$;
+		function mainIframeLoad(id) {
+            $("#"+id).css("height","100%");
+            var mainFrameObj = $("#"+id);
+            mainFrameObj.contents().find("body").css("background-color","transparent");
+            var FrameBodyHeight = mainFrameObj.contents().find("body").height();
+            mainFrameObj.css("height",FrameBodyHeight);
+        }
+		$(function(){
+			$("body").on("click",".nav a",function(e){
+				e.preventDefault();
+			});
+			$("#"+$("dd:eq(0) a").data("source")).load(function(){
+				$("dd:eq(0) a").click();
+				mainIframeLoad($("dd:eq(0) a").data("source"));
+			})
+		})
+		layui.use('element', function(){
+			var element = layui.element;
+			element.on('nav(nav)', function(elem){
+				var selectSource = elem[0].dataset.source;
+				$(".container .body .content iframe").hide();
+				$(".container .body .content #"+selectSource).show();
+				mainIframeLoad(selectSource);
+			});
+		});
+	</script>
+</body>
+</html>
