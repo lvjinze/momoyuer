@@ -3,13 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>摸鱼么，兄弟？</title>
-	<link rel="stylesheet" href="../static/lib/layui/css/layui.css">
-	<link rel="stylesheet" href="../static/fish/fish.css">
+	<link rel="stylesheet" href="static/lib/layui/css/layui.css">
+	<link rel="stylesheet" href="static/fish/fish.css">
 </head>
 <body>
 	<div class="container">
 		<div class="head">
-			<a href="#"><img src="../static/fish/fish.png"/>&nbsp;&nbsp;摸鱼么，兄弟？</a>
+			<a href="#"><img src="static/fish/fish.png"/>&nbsp;&nbsp;摸鱼么，兄弟？</a>
 		</div>
 		<div class="body">
 			<div class="nav">
@@ -36,7 +36,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<script type="text/javascript" src="../static/lib/layui/layui.all.js" ></script>
+	<script type="text/javascript" src="static/lib/layui/layui.all.js" ></script>
 	<script>
 		var $ = layui.$;
 		function mainIframeLoad(id) {
@@ -44,7 +44,7 @@
             var mainFrameObj = $("#"+id);
             mainFrameObj.contents().find("body").css("background-color","transparent");
             var FrameBodyHeight = mainFrameObj.contents().find("body").height();
-            mainFrameObj.css("height",FrameBodyHeight);
+            mainFrameObj.css("height",FrameBodyHeight+20);
         }
 		$(function(){
 			$("body").on("click",".nav a",function(e){
@@ -57,8 +57,8 @@
 		})
 		layui.use('element', function(){
 			var element = layui.element;
-			element.on('nav(nav)', function(elem){
-				var selectSource = elem[0].dataset.source;
+			element.on('nav(nav)', function(){
+				var selectSource = $(".layui-this a").data("source");
 				$(".container .body .content iframe").hide();
 				$(".container .body .content #"+selectSource).show();
 				mainIframeLoad(selectSource);
