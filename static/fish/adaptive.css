@@ -1,0 +1,15 @@
+@media only screen and (min-width: 0px) and (max-width: 750px) {
+	.container > .body > .nav{
+		display: none;
+	}
+	.container > .body > .content{
+		width: 100%;
+	}
+	.container > .head > .menu-btn{
+		display: block;
+	}
+	.container > .head{
+		text-indent: 25px;
+		font-size: 25px;
+	}
+}

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>鱼</title>
 	<link rel="stylesheet" href="static/lib/layui/css/layui.css">
 	<link rel="stylesheet" href="static/fish/fish.css">
@@ -9,8 +10,11 @@
 		li{
 			margin-top: 20px;
 			overflow: hidden;
-			text-overflow:ellipsis;
-			white-space: nowrap;
+		    text-overflow: ellipsis;
+		    white-space: normal ！important;
+		    display: -webkit-box;
+		    -webkit-line-clamp: 1;
+		    -webkit-box-orient: vertical;
 		}
 	</style>
 </head>

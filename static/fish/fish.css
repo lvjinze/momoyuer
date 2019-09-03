@@ -52,12 +52,39 @@ body::-webkit-scrollbar{
 	width: 0;
 	height: 0;
 }
+.mask{
+	position: absolute;
+	top:0px;
+	right:0px;
+	left:0px;
+	bottom:0px;
+	background: rgba(0,0,0,.7);
+	display: none;
+	z-index: 1;
+	cursor: pointer;
+}
+.side-menu{
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	width: 200px;
+	display: none;
+	background: #ccc;
+	z-index: 2;
+}
 .container > .head{
 	height: 80px;
     text-indent: 80px;
     line-height: 80px;
     font-size: 30px;
     background: white;
+}
+.container > .head > .menu-btn{
+    width: 36px;
+    margin-top: 23px;
+    margin-left: 25px;
+    float: left;
+    display: none;
 }
 .container > .head img{
 	width: 58px;
@@ -74,6 +101,7 @@ body::-webkit-scrollbar{
 .container > .body > .nav{
     width: 223px;
     float: left;
+    z-index: 3;
 }
 .container > .body > .content{
 	display: inline-block;
