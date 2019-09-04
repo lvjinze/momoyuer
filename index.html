@@ -93,7 +93,11 @@
 				var selectSource = $(".layui-this a").data("source");
 				$(".container .body .content iframe").hide();
 				$(".container .body .content #"+selectSource).show();
-				mainIframeLoad(selectSource);
+				if(window.parent.document.getElementById(selectSource).contentWindow.lazy){
+					$("#"+selectSource).css("height",673);
+				}else{
+					mainIframeLoad(selectSource);
+				}
 			});
 		});
 	</script>
