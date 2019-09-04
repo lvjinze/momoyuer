@@ -49,6 +49,7 @@
 	<script>
 		FastClick.attach(document.body);
 		var $ = layui.$;
+		var bodyW = $("body").width();
 		function showSideMenu(){
 			$(".nav").show();
 			$(".mask").show();
@@ -86,7 +87,9 @@
 		layui.use('element', function(){
 			var element = layui.element;
 			element.on('nav(nav)', function(){
-				hideSideMenu();
+				if(bodyW <= 750){
+					hideSideMenu();
+				}
 				var selectSource = $(".layui-this a").data("source");
 				$(".container .body .content iframe").hide();
 				$(".container .body .content #"+selectSource).show();

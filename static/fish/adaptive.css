@@ -4,6 +4,7 @@
 	}
 	.container > .body > .content{
 		width: 100%;
+		padding: 10px;
 	}
 	.container > .head > .menu-btn{
 		display: block;

@@ -102,6 +102,7 @@ body::-webkit-scrollbar{
     width: 223px;
     float: left;
     z-index: 3;
+	padding-top: 20px;
 }
 .container > .body > .content{
 	display: inline-block;
