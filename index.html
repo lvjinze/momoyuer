@@ -84,9 +84,16 @@
 			})
 			$("dd:eq(0) a").click();
 			$("#"+$("dd:eq(0) a").data("source")).load(function(){
-				mainIframeLoad($("dd:eq(0) a").data("source"));
+				autoHeight($("dd:eq(0) a").data("source"));
 			})
 		})
+		function autoHeight(selectSource){
+			if(window.parent.document.getElementById(selectSource).contentWindow.lazy){
+				$("#"+selectSource).css("height",673);
+			}else{
+				mainIframeLoad(selectSource);
+			}
+		}
 		layui.use('element', function(){
 			var element = layui.element;
 			element.on('nav(nav)', function(){
@@ -96,11 +103,7 @@
 				var selectSource = $(".layui-this a").data("source");
 				$(".container .body .content iframe").hide();
 				$(".container .body .content #"+selectSource).show();
-				if(window.parent.document.getElementById(selectSource).contentWindow.lazy){
-					$("#"+selectSource).css("height",673);
-				}else{
-					mainIframeLoad(selectSource);
-				}
+				autoHeight(selectSource);
 			});
 		});
 	</script>

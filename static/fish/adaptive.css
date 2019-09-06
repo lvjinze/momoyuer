@@ -12,5 +12,11 @@
 	.container > .head{
 		text-indent: 25px;
 		font-size: 25px;
+	    position: fixed;
+	    top: 0px;
+	    width: 100%;
+	}
+	.container > .body{
+	    margin-top: 100px;
 	}
 }
